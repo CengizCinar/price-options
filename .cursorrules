@@ -1,0 +1,211 @@
+{
+  "critical_components": {
+    "background_js": {
+      "url_structure": {
+        "idealo": {
+          "base_url": "https://www.idealo.de/preisvergleich/MainSearchProductCategory.html",
+          "query_format": "?q=${ean}",
+          "do_not_modify": true
+        },
+        "prisjakt": {
+          "base_url": "https://www.prisjakt.nu/search",
+          "query_format": "?search=${ean}",
+          "do_not_modify": true
+        },
+        "pricerunner": {
+          "base_url": "https://www.pricerunner.se/results",
+          "query_format": "?q=${ean}",
+          "do_not_modify": true
+        },
+        "trovaprezzi": {
+          "base_url": "https://www.trovaprezzi.it/prezzi_",
+          "query_format": "${ean}.aspx",
+          "do_not_modify": true
+        },
+        "beslist": {
+          "base_url": "https://www.beslist.nl/products/r",
+          "query_format": "/${ean}",
+          "do_not_modify": true
+        }
+      },
+      "fetch_configuration": {
+        "idealo": {
+          "method": "GET",
+          "headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+          },
+          "credentials": "omit",
+          "do_not_modify": true
+        },
+        "prisjakt": {
+          "method": "GET",
+          "headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "sv-SE,sv;q=0.9,en-US;q=0.8,en;q=0.7",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+          },
+          "credentials": "omit",
+          "do_not_modify": true
+        },
+        "pricerunner": {
+          "method": "GET",
+          "headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "sv-SE,sv;q=0.9,en-US;q=0.8,en;q=0.7",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+          },
+          "credentials": "omit",
+          "do_not_modify": true
+        },
+        "trovaprezzi": {
+          "method": "GET",
+          "headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+          },
+          "credentials": "omit",
+          "do_not_modify": true
+        },
+        "beslist": {
+          "method": "GET",
+          "headers": {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "nl-NL,nl;q=0.9,en-US;q=0.8,en;q=0.7",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+          },
+          "credentials": "omit",
+          "do_not_modify": true
+        }
+      },
+      "price_regex": {
+        "idealo": {
+          "pattern": "<div[^>]*class=\"sr-detailedPriceInfo__price_sYVmx\"[^>]*>[^€]*?(\\d+,\\d{2})\\s*€/g",
+          "do_not_modify": true
+        },
+        "prisjakt": {
+          "pattern": "<span class=\"Text--q06h0j igDZdP\"[^>]*>(\\d+)\\s*kr<\\/span>",
+          "do_not_modify": true
+        },
+        "pricerunner": {
+          "pattern": "<span class=\"pr-1t1srqo\"[^>]*>(\\d+)&nbsp;kr<\\/span>",
+          "do_not_modify": true
+        },
+        "trovaprezzi": {
+          "pattern": "<div class=\"item_basic_price\">[^€]*?(\\d+,\\d{2})\\s*€</div>",
+          "do_not_modify": true
+        },
+        "beslist": {
+          "pattern": "<div class=\"price--pCj_o\">[^€]*?(\\d+,\\d{2})\\s*€</div>",
+          "max_results": 4,
+          "do_not_modify": true
+        }
+      },
+      "ean_handling": {
+        "rules": {
+          "try_all_eans": true,
+          "stop_on_success": true,
+          "store_successful": true,
+          "show_lowest_price": true
+        },
+        "do_not_modify": true
+      }
+    },
+    "content_js": {
+      "display_structure": {
+        "title": {
+          "text": "PRICE OPTIONS",
+          "style": {
+            "font-family": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif",
+            "font-weight": "600",
+            "text-align": "center"
+          }
+        },
+        "price_row": {
+          "layout": "flex",
+          "justify-content": "space-between",
+          "site_styles": {
+            "idealo": {
+              "text": "idealo.de",
+              "color": "#2c3e50"
+            },
+            "prisjakt": {
+              "text": "prisjakt.nu",
+              "color": "#2c3e50"
+            },
+            "pricerunner": {
+              "text": "pricerunner.se",
+              "color": "#2c3e50"
+            },
+            "trovaprezzi": {
+              "text": "trovaprezzi.it",
+              "color": "#2c3e50"
+            },
+            "beslist": {
+              "text": "beslist.nl",
+              "color": "#2c3e50"
+            }
+          },
+          "price_styles": {
+            "color": "#00796b",
+            "format": {
+              "eur": "${price} €",
+              "sek": "${price} kr"
+            }
+          }
+        }
+      }
+    },
+    "manifest_json": {
+      "permissions": [
+        "activeTab",
+        "scripting"
+      ],
+      "host_permissions": [
+        "https://*.amazon.com/*",
+        "https://*.amazon.co.uk/*",
+        "https://*.amazon.de/*",
+        "https://*.amazon.fr/*",
+        "https://*.amazon.it/*",
+        "https://*.amazon.es/*",
+        "https://*.amazon.ca/*",
+        "https://*.amazon.com.au/*",
+        "https://*.amazon.nl/*",
+        "https://*.amazon.se/*",
+        "https://*.amazon.pl/*",
+        "https://*.amazon.sg/*",
+        "https://*.amazon.com.br/*",
+        "https://*.amazon.in/*",
+        "https://*.amazon.co.jp/*",
+        "https://*.amazon.cn/*",
+        "https://*.amazon.com.mx/*",
+        "https://*.idealo.de/*",
+        "https://*.prisjakt.nu/*",
+        "https://*.pricerunner.se/*",
+        "https://*.trovaprezzi.it/*",
+        "https://*.beslist.nl/*"
+      ],
+      "do_not_modify": true
+    }
+  },
+  "warning": "Bu bileşenler uzantının çalışması için kritik öneme sahiptir. Değiştirilmeleri durumunda uzantı düzgün çalışmayabilir.",
+  "modification_rules": {
+    "allowed": [
+      "Görsel tasarım (renkler, fontlar, boyutlar)",
+      "Ek özellikler",
+      "Hata mesajları",
+      "Loglama",
+      "Performans optimizasyonları"
+    ],
+    "forbidden": [
+      "URL yapısı",
+      "Fiyat regex pattern'ları",
+      "Fetch konfigürasyonu",
+      "Temel izinler",
+      "Fiyat parse etme mantığı",
+      "EAN işleme kuralları"
+    ]
+  }
+}
